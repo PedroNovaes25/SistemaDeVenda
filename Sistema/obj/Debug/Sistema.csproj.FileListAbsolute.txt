@@ -1,0 +1,10 @@
+C:\Users\Public\PedroNovaes\SistemaDeVenda\Sistema\bin\Debug\Sistema.exe.config
+C:\Users\Public\PedroNovaes\SistemaDeVenda\Sistema\bin\Debug\Sistema.exe
+C:\Users\Public\PedroNovaes\SistemaDeVenda\Sistema\bin\Debug\Sistema.pdb
+C:\Users\Public\PedroNovaes\SistemaDeVenda\Sistema\obj\Debug\Sistema.csprojAssemblyReference.cache
+C:\Users\Public\PedroNovaes\SistemaDeVenda\Sistema\obj\Debug\Sistema.Menu.resources
+C:\Users\Public\PedroNovaes\SistemaDeVenda\Sistema\obj\Debug\Sistema.Properties.Resources.resources
+C:\Users\Public\PedroNovaes\SistemaDeVenda\Sistema\obj\Debug\Sistema.csproj.GenerateResource.cache
+C:\Users\Public\PedroNovaes\SistemaDeVenda\Sistema\obj\Debug\Sistema.csproj.CoreCompileInputs.cache
+C:\Users\Public\PedroNovaes\SistemaDeVenda\Sistema\obj\Debug\Sistema.exe
+C:\Users\Public\PedroNovaes\SistemaDeVenda\Sistema\obj\Debug\Sistema.pdb
