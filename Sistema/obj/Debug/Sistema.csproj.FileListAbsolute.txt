@@ -8,3 +8,7 @@ C:\Users\Public\PedroNovaes\SistemaDeVenda\Sistema\obj\Debug\Sistema.csproj.Gene
 C:\Users\Public\PedroNovaes\SistemaDeVenda\Sistema\obj\Debug\Sistema.csproj.CoreCompileInputs.cache
 C:\Users\Public\PedroNovaes\SistemaDeVenda\Sistema\obj\Debug\Sistema.exe
 C:\Users\Public\PedroNovaes\SistemaDeVenda\Sistema\obj\Debug\Sistema.pdb
+C:\Users\Public\PedroNovaes\SistemaDeVenda\Sistema\bin\Debug\MetroFramework.Design.dll
+C:\Users\Public\PedroNovaes\SistemaDeVenda\Sistema\bin\Debug\MetroFramework.dll
+C:\Users\Public\PedroNovaes\SistemaDeVenda\Sistema\bin\Debug\MetroFramework.Fonts.dll
+C:\Users\Public\PedroNovaes\SistemaDeVenda\Sistema\obj\Debug\Sistema.csproj.CopyComplete

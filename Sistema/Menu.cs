@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace Sistema
 {
-    public partial class Menu : Form
+    public partial class Menu : Form  //MetroFramework.Forms.MetroForm
     {
         public Menu()
         {
