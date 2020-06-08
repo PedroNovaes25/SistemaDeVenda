@@ -1,4 +1,5 @@
-﻿using System;
+﻿using sistema.DAL;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,11 @@ namespace Sistema
         public frm_produtos()
         {
             InitializeComponent();
+        }
+
+        private void frm_produtos_Load(object sender, EventArgs e)
+        {
+            this.produtoBindingSource.DataSource = DataContextFactory.DataContext.Produto;
         }
     }
 }
