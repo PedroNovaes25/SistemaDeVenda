@@ -1,6 +1,6 @@
 ﻿namespace Sistema
 {
-    partial class Menu
+    partial class frm_menu
     {
         /// <summary>
         /// Variável de designer necessária.
@@ -33,6 +33,7 @@
             this.produtosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.produtosToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.categoriaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.btn_cad_categorias = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -55,6 +56,7 @@
             this.btb_cad_produtos.Text = "Cadastrar Produtos";
             this.btb_cad_produtos.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btb_cad_produtos.UseVisualStyleBackColor = false;
+            this.btb_cad_produtos.Click += new System.EventHandler(this.btb_cad_produtos_Click);
             // 
             // menuStrip1
             // 
@@ -78,16 +80,37 @@
             // produtosToolStripMenuItem1
             // 
             this.produtosToolStripMenuItem1.Name = "produtosToolStripMenuItem1";
-            this.produtosToolStripMenuItem1.Size = new System.Drawing.Size(122, 22);
+            this.produtosToolStripMenuItem1.Size = new System.Drawing.Size(125, 22);
             this.produtosToolStripMenuItem1.Text = "Produtos";
             // 
             // categoriaToolStripMenuItem
             // 
             this.categoriaToolStripMenuItem.Name = "categoriaToolStripMenuItem";
-            this.categoriaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.categoriaToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
             this.categoriaToolStripMenuItem.Text = "Categoria";
             // 
-            // Menu
+            // btn_cad_categorias
+            // 
+            this.btn_cad_categorias.BackColor = System.Drawing.Color.Transparent;
+            this.btn_cad_categorias.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_cad_categorias.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btn_cad_categorias.FlatAppearance.BorderSize = 0;
+            this.btn_cad_categorias.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btn_cad_categorias.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gray;
+            this.btn_cad_categorias.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_cad_categorias.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btn_cad_categorias.Image = global::Sistema.Properties.Resources.faturas_40x40;
+            this.btn_cad_categorias.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btn_cad_categorias.Location = new System.Drawing.Point(121, 80);
+            this.btn_cad_categorias.Name = "btn_cad_categorias";
+            this.btn_cad_categorias.Size = new System.Drawing.Size(88, 74);
+            this.btn_cad_categorias.TabIndex = 3;
+            this.btn_cad_categorias.Text = "Cadastrar Categorias";
+            this.btn_cad_categorias.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btn_cad_categorias.UseVisualStyleBackColor = false;
+            this.btn_cad_categorias.Click += new System.EventHandler(this.btn_cad_categorias_Click);
+            // 
+            // frm_menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -95,12 +118,14 @@
             this.BackgroundImage = global::Sistema.Properties.Resources.fundo_sistema_azul;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(568, 314);
+            this.Controls.Add(this.btn_cad_categorias);
             this.Controls.Add(this.btb_cad_produtos);
             this.Controls.Add(this.menuStrip1);
             this.DoubleBuffered = true;
             this.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.MainMenuStrip = this.menuStrip1;
-            this.Name = "Menu";
+            this.Name = "frm_menu";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Menu Principal";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -115,6 +140,7 @@
         private System.Windows.Forms.ToolStripMenuItem produtosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem produtosToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem categoriaToolStripMenuItem;
+        private System.Windows.Forms.Button btn_cad_categorias;
     }
 }
 

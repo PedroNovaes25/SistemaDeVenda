@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Sistema
 {
-    public partial class Menu : Form  //MetroFramework.Forms.MetroForm
+    public partial class frm_produtos : Form
     {
-        public Menu()
+        public frm_produtos()
         {
             InitializeComponent();
         }

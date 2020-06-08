@@ -73,9 +73,9 @@ namespace Sistema.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap fundo_sistema_azul {
+        internal static System.Drawing.Bitmap faturas_40x40 {
             get {
-                object obj = ResourceManager.GetObject("fundo sistema azul", resourceCulture);
+                object obj = ResourceManager.GetObject("faturas 40x40", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -83,9 +83,9 @@ namespace Sistema.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap vendas3 {
+        internal static System.Drawing.Bitmap fundo_sistema_azul {
             get {
-                object obj = ResourceManager.GetObject("vendas3", resourceCulture);
+                object obj = ResourceManager.GetObject("fundo sistema azul", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

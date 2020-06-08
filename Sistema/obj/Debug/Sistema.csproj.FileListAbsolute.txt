@@ -2,7 +2,6 @@ C:\Users\Public\PedroNovaes\SistemaDeVenda\Sistema\bin\Debug\Sistema.exe.config
 C:\Users\Public\PedroNovaes\SistemaDeVenda\Sistema\bin\Debug\Sistema.exe
 C:\Users\Public\PedroNovaes\SistemaDeVenda\Sistema\bin\Debug\Sistema.pdb
 C:\Users\Public\PedroNovaes\SistemaDeVenda\Sistema\obj\Debug\Sistema.csprojAssemblyReference.cache
-C:\Users\Public\PedroNovaes\SistemaDeVenda\Sistema\obj\Debug\Sistema.Menu.resources
 C:\Users\Public\PedroNovaes\SistemaDeVenda\Sistema\obj\Debug\Sistema.Properties.Resources.resources
 C:\Users\Public\PedroNovaes\SistemaDeVenda\Sistema\obj\Debug\Sistema.csproj.GenerateResource.cache
 C:\Users\Public\PedroNovaes\SistemaDeVenda\Sistema\obj\Debug\Sistema.csproj.CoreCompileInputs.cache
@@ -12,3 +11,6 @@ C:\Users\Public\PedroNovaes\SistemaDeVenda\Sistema\bin\Debug\MetroFramework.Desi
 C:\Users\Public\PedroNovaes\SistemaDeVenda\Sistema\bin\Debug\MetroFramework.dll
 C:\Users\Public\PedroNovaes\SistemaDeVenda\Sistema\bin\Debug\MetroFramework.Fonts.dll
 C:\Users\Public\PedroNovaes\SistemaDeVenda\Sistema\obj\Debug\Sistema.csproj.CopyComplete
+C:\Users\Public\PedroNovaes\SistemaDeVenda\Sistema\obj\Debug\Sistema.frm_categorias.resources
+C:\Users\Public\PedroNovaes\SistemaDeVenda\Sistema\obj\Debug\Sistema.frm_menu.resources
+C:\Users\Public\PedroNovaes\SistemaDeVenda\Sistema\obj\Debug\Sistema.frm_produtos.resources
