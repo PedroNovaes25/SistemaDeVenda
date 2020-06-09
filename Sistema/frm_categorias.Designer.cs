@@ -32,13 +32,13 @@
             this.dataGrid_produtos = new System.Windows.Forms.DataGridView();
             this.codigoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.descricaoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.categoriaBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.btn_cancelar = new System.Windows.Forms.Button();
             this.btn_excluir = new System.Windows.Forms.Button();
             this.btn_cadastrar = new System.Windows.Forms.Button();
             this.btn_novo = new System.Windows.Forms.Button();
             this.txt_categoria = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.categoriaBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid_produtos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.categoriaBindingSource1)).BeginInit();
             this.SuspendLayout();
@@ -73,6 +73,10 @@
             this.descricaoDataGridViewTextBoxColumn.Name = "descricaoDataGridViewTextBoxColumn";
             this.descricaoDataGridViewTextBoxColumn.ReadOnly = true;
             this.descricaoDataGridViewTextBoxColumn.Width = 200;
+            // 
+            // categoriaBindingSource1
+            // 
+            this.categoriaBindingSource1.DataSource = typeof(sistema.DAL.Categoria);
             // 
             // btn_cancelar
             // 
@@ -130,10 +134,6 @@
             this.label1.Size = new System.Drawing.Size(52, 13);
             this.label1.TabIndex = 11;
             this.label1.Text = "Categoria";
-            // 
-            // categoriaBindingSource1
-            // 
-            this.categoriaBindingSource1.DataSource = typeof(sistema.DAL.Categoria);
             // 
             // frm_categorias
             // 

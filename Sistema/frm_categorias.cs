@@ -22,12 +22,10 @@ namespace Sistema
         {
             this.categoriaBindingSource1.DataSource = DataContextFactory.DataContext.Categoria;
         }
-
         private void btn_novo_Click(object sender, EventArgs e)
         {
             this.categoriaBindingSource1.AddNew();
         }
-
         private void btn_cadastrar_Click(object sender, EventArgs e)
         {
             if (Validar())
@@ -40,18 +38,31 @@ namespace Sistema
                 }
             } 
         }
-
         private void btn_excluir_Click(object sender, EventArgs e)
         {
             //Mensage, nome da janela, pergunta y/n botões, resultado da pergunta == y ?
             if (MessageBox.Show("Tem certeza?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                this.categoriaBindingSource1.RemoveCurrent();
-                DataContextFactory.DataContext.SubmitChanges();
-                MessageBox.Show("Categoria removida com sucesso !");
+                if (!CategoriaPossuiProduto(categoriaAtual))
+                {
+                    this.categoriaBindingSource1.RemoveCurrent();
+                    DataContextFactory.DataContext.SubmitChanges();
+                    MessageBox.Show("Categoria removida com sucesso !");
+                }
+                else 
+                {
+                    MessageBox.Show("Não é possível excluir este produto, ela possui uma referência");
+                }
             }
         }
+        
+        private void btn_cancelar_Click(object sender, EventArgs e)
+        {
+            this.categoriaBindingSource1.CancelEdit();
+        }
 
+
+        #region #validacoes
         private bool Validar()
         {
             if (txt_categoria.Text.Trim() == string.Empty) //.Trim ignora os espaços
@@ -62,11 +73,23 @@ namespace Sistema
             }
             return true;
         }
-
-
-        private void btn_cancelar_Click(object sender, EventArgs e)
+        public Categoria categoriaAtual
         {
-            this.categoriaBindingSource1.CancelEdit();
+            get
+            {
+                return (Categoria)this.categoriaBindingSource1.Current;
+            }
+        } //grid selecionado
+        private bool CategoriaPossuiProduto(Categoria categoria)
+        {
+            var produtos = DataContextFactory.DataContext.Produto.Where(x => x.CodigoCategoria == categoria.Codigo); //Pegando o codigoCategoria do banco e comparando com o codigoCategoria selecionado no grid
+            if (produtos.Count() > 0)
+            {
+                return true;
+            }
+            return false;
         }
+        #endregion
+
     }
 }

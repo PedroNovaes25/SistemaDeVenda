@@ -46,8 +46,10 @@
             this.valorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.codigoCategoriaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.categoriaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.categoriaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid_produtos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.produtoBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.categoriaBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -61,6 +63,7 @@
             // 
             // txt_descricao
             // 
+            this.txt_descricao.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.produtoBindingSource, "Descricao", true));
             this.txt_descricao.Location = new System.Drawing.Point(80, 38);
             this.txt_descricao.Name = "txt_descricao";
             this.txt_descricao.Size = new System.Drawing.Size(121, 20);
@@ -68,14 +71,20 @@
             // 
             // CB_categoria
             // 
+            this.CB_categoria.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.categoriaBindingSource, "Descricao", true));
+            this.CB_categoria.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.produtoBindingSource, "CodigoCategoria", true));
+            this.CB_categoria.DataSource = this.categoriaBindingSource;
+            this.CB_categoria.DisplayMember = "Descricao";
             this.CB_categoria.FormattingEnabled = true;
             this.CB_categoria.Location = new System.Drawing.Point(471, 37);
             this.CB_categoria.Name = "CB_categoria";
             this.CB_categoria.Size = new System.Drawing.Size(121, 21);
             this.CB_categoria.TabIndex = 2;
+            this.CB_categoria.ValueMember = "Codigo";
             // 
             // txt_valor
             // 
+            this.txt_valor.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.produtoBindingSource, "Valor", true));
             this.txt_valor.Location = new System.Drawing.Point(265, 38);
             this.txt_valor.Name = "txt_valor";
             this.txt_valor.Size = new System.Drawing.Size(121, 20);
@@ -107,6 +116,7 @@
             this.btn_novo.TabIndex = 6;
             this.btn_novo.Text = "Novo";
             this.btn_novo.UseVisualStyleBackColor = true;
+            this.btn_novo.Click += new System.EventHandler(this.btn_novo_Click);
             // 
             // btn_cadastrar
             // 
@@ -114,8 +124,9 @@
             this.btn_cadastrar.Name = "btn_cadastrar";
             this.btn_cadastrar.Size = new System.Drawing.Size(75, 23);
             this.btn_cadastrar.TabIndex = 7;
-            this.btn_cadastrar.Text = "Cadastrar";
+            this.btn_cadastrar.Text = "Salvar";
             this.btn_cadastrar.UseVisualStyleBackColor = true;
+            this.btn_cadastrar.Click += new System.EventHandler(this.btn_cadastrar_Click);
             // 
             // btn_excluir
             // 
@@ -125,6 +136,7 @@
             this.btn_excluir.TabIndex = 8;
             this.btn_excluir.Text = "Excluir";
             this.btn_excluir.UseVisualStyleBackColor = true;
+            this.btn_excluir.Click += new System.EventHandler(this.btn_excluir_Click);
             // 
             // btn_cancelar
             // 
@@ -134,6 +146,7 @@
             this.btn_cancelar.TabIndex = 9;
             this.btn_cancelar.Text = "Cancelar";
             this.btn_cancelar.UseVisualStyleBackColor = true;
+            this.btn_cancelar.Click += new System.EventHandler(this.btn_cancelar_Click);
             // 
             // dataGrid_produtos
             // 
@@ -153,6 +166,7 @@
             this.dataGrid_produtos.ReadOnly = true;
             this.dataGrid_produtos.Size = new System.Drawing.Size(570, 212);
             this.dataGrid_produtos.TabIndex = 10;
+            this.dataGrid_produtos.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGrid_produtos_CellFormatting);
             // 
             // produtoBindingSource
             // 
@@ -171,7 +185,7 @@
             this.descricaoDataGridViewTextBoxColumn.HeaderText = "Descrição";
             this.descricaoDataGridViewTextBoxColumn.Name = "descricaoDataGridViewTextBoxColumn";
             this.descricaoDataGridViewTextBoxColumn.ReadOnly = true;
-            this.descricaoDataGridViewTextBoxColumn.Width = 150;
+            this.descricaoDataGridViewTextBoxColumn.Width = 170;
             // 
             // valorDataGridViewTextBoxColumn
             // 
@@ -194,7 +208,11 @@
             this.categoriaDataGridViewTextBoxColumn.HeaderText = "Categoria";
             this.categoriaDataGridViewTextBoxColumn.Name = "categoriaDataGridViewTextBoxColumn";
             this.categoriaDataGridViewTextBoxColumn.ReadOnly = true;
-            this.categoriaDataGridViewTextBoxColumn.Width = 150;
+            this.categoriaDataGridViewTextBoxColumn.Width = 155;
+            // 
+            // categoriaBindingSource
+            // 
+            this.categoriaBindingSource.DataSource = typeof(sistema.DAL.Categoria);
             // 
             // frm_produtos
             // 
@@ -219,6 +237,7 @@
             this.Load += new System.EventHandler(this.frm_produtos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid_produtos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.produtoBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.categoriaBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -243,5 +262,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn valorDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn codigoCategoriaDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn categoriaDataGridViewTextBoxColumn;
+        private System.Windows.Forms.BindingSource categoriaBindingSource;
     }
 }
