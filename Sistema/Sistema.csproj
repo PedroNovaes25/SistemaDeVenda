@@ -132,7 +132,11 @@
     </Compile>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\sistema.DAL.Categoria.datasource" />
+    <None Include="Properties\DataSources\sistema.DAL.ItensVenda.datasource" />
+    <None Include="Properties\DataSources\sistema.DAL.Pessoas.datasource" />
     <None Include="Properties\DataSources\sistema.DAL.Produto.datasource" />
+    <None Include="Properties\DataSources\sistema.DAL.Usuarios.datasource" />
+    <None Include="Properties\DataSources\sistema.DAL.Venda.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
