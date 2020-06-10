@@ -17,3 +17,4 @@ C:\Users\Public\PedroNovaes\SistemaDeVenda\Sistema\obj\Debug\Sistema.frm_produto
 C:\Users\Public\PedroNovaes\SistemaDeVenda\Sistema\bin\Debug\sistema.DAL.dll
 C:\Users\Public\PedroNovaes\SistemaDeVenda\Sistema\bin\Debug\sistema.DAL.pdb
 C:\Users\Public\PedroNovaes\SistemaDeVenda\Sistema\bin\Debug\sistema.DAL.dll.config
+C:\Users\Public\PedroNovaes\SistemaDeVenda\Sistema\obj\Debug\Sistema.frm_consultaProdutos.resources
