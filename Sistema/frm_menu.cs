@@ -34,5 +34,11 @@ namespace Sistema
             frm_consultaProdutos frm = new frm_consultaProdutos();
             frm.Show();
         }
+
+        private void vendaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frm_venda frm = new frm_venda();
+            frm.Show();
+        }
     }
 }
