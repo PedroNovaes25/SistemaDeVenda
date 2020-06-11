@@ -53,21 +53,24 @@ namespace Sistema
             NovoItem();
         }
 
+
+        
+
         private void NovoItem() 
         {
             this.itensVendaBindingSource.AddNew();
             this.ItemCorrente.CodigoVenda = this.VendaCorrente.Codigo;
             this.ItemCorrente.Quantidade = 1;
+            MostraSomaValores();
         }
-
         private void btn_novoItem_Click(object sender, EventArgs e)
         {
             this.itensVendaBindingSource.EndEdit();
             dataGridViewItensVenda.Refresh();
             DataContextFactory.DataContext.SubmitChanges();
             NovoItem();
+            
         }
-
         private void dataGridViewItensVenda_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
             if (e.Value != null && e.ColumnIndex == 1)
@@ -75,7 +78,6 @@ namespace Sistema
                 e.Value = ((Produto)e.Value).Descricao;
             }
         }
-
         private void CB_produto_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (CB_produto.SelectedItem != null)
@@ -84,6 +86,21 @@ namespace Sistema
                 this.ItemCorrente.CodigoProduto = (int)pro.Codigo;
                 this.ItemCorrente.Valor = (decimal)pro.Valor;
             }
+        }
+        private void MostraSomaValores()
+        {
+            decimal totalVenda = 0;
+
+            foreach (DataGridViewRow item in dataGridViewItensVenda.Rows)
+            {
+                decimal valor = Convert.ToDecimal(item.Cells[3].Value);
+                int quantidade = (int)(item.Cells[2].Value);
+                decimal subtotal = quantidade * valor;
+                item.Cells[4].Value = subtotal;
+
+                totalVenda += subtotal;
+            }
+            this.VendaCorrente.Valor = totalVenda;
         }
     }
 }
