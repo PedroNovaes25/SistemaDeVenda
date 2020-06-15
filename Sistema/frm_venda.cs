@@ -44,6 +44,7 @@ namespace Sistema
 
         private void btn_novaVenda_Click(object sender, EventArgs e)
         {
+            this.Size = new Size(740,527);
             this.vendaBindingSource.EndEdit();
             DataContextFactory.DataContext.SubmitChanges();
             groupBox1.Visible = true;
@@ -51,10 +52,8 @@ namespace Sistema
 
             this.itensVendaBindingSource.DataSource = DataContextFactory.DataContext.ItensVenda;
             NovoItem();
+            CB_cliente.Enabled = false;
         }
-
-
-        
 
         private void NovoItem() 
         {
@@ -101,6 +100,35 @@ namespace Sistema
                 totalVenda += subtotal;
             }
             this.VendaCorrente.Valor = totalVenda;
+        }
+
+        private void btn_fin_pedido_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Deseja finalizar o pedido ?", "Finalizar", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes) 
+            {
+                this.itensVendaBindingSource.CancelEdit();
+                DataContextFactory.DataContext.SubmitChanges();
+                this.VendaCorrente.Desconto = 0;
+                btn_novoItem.Enabled = false;
+                CB_produto.Enabled = false;
+                txt_quantidade.Enabled = false;
+                txt_Desconto.ReadOnly = false;
+                txt_Desconto.Focus();
+                btn_fin_pedido.Enabled = false;
+                btn_fin_venda.Enabled = true;
+                txt_codigo.Enabled = false;
+            }
+        }
+
+        private void btn_fin_venda_Click(object sender, EventArgs e)
+        {
+            this.VendaCorrente.Desconto = Convert.ToDecimal(txt_Desconto.Text);
+            this.VendaCorrente.ValorPago = (decimal)(this.VendaCorrente.Valor - this.VendaCorrente.Desconto);
+            vendaBindingSource.EndEdit();
+            DataContextFactory.DataContext.SubmitChanges();
+            txt_Desconto.Enabled = false;
+            btn_fin_venda.Enabled = false;
+            btn_imprimir.Enabled = true;
         }
     }
 }

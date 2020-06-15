@@ -37,8 +37,8 @@
             System.Windows.Forms.Label valorLabel1;
             System.Windows.Forms.Label descontoLabel;
             System.Windows.Forms.Label valorPagoLabel;
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.CB_cliente = new System.Windows.Forms.ComboBox();
             this.vendaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.pessoasBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -51,18 +51,18 @@
             this.itensVendaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.produtoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataGridViewItensVenda = new System.Windows.Forms.DataGridView();
-            this.valorTextBox = new System.Windows.Forms.TextBox();
-            this.txt_valorPago = new System.Windows.Forms.TextBox();
-            this.quantidadeTextBox = new System.Windows.Forms.TextBox();
-            this.codigoTextBox = new System.Windows.Forms.TextBox();
-            this.txt_Desconto = new System.Windows.Forms.TextBox();
-            this.txt_Valor = new System.Windows.Forms.TextBox();
-            this.btn_novaVenda = new System.Windows.Forms.Button();
             this.CodigoProduto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.columnValorTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.valorTextBox = new System.Windows.Forms.TextBox();
+            this.txt_valorPago = new System.Windows.Forms.TextBox();
+            this.txt_quantidade = new System.Windows.Forms.TextBox();
+            this.txt_codigo = new System.Windows.Forms.TextBox();
+            this.txt_Desconto = new System.Windows.Forms.TextBox();
+            this.txt_Valor = new System.Windows.Forms.TextBox();
+            this.btn_novaVenda = new System.Windows.Forms.Button();
             codigoPessoaLabel = new System.Windows.Forms.Label();
             codigoLabel = new System.Windows.Forms.Label();
             quantidadeLabel = new System.Windows.Forms.Label();
@@ -187,9 +187,9 @@
             this.groupBox1.Controls.Add(this.txt_valorPago);
             this.groupBox1.Controls.Add(quantidadeLabel);
             this.groupBox1.Controls.Add(descontoLabel);
-            this.groupBox1.Controls.Add(this.quantidadeTextBox);
+            this.groupBox1.Controls.Add(this.txt_quantidade);
             this.groupBox1.Controls.Add(codigoLabel);
-            this.groupBox1.Controls.Add(this.codigoTextBox);
+            this.groupBox1.Controls.Add(this.txt_codigo);
             this.groupBox1.Controls.Add(valorLabel1);
             this.groupBox1.Controls.Add(this.txt_Desconto);
             this.groupBox1.Controls.Add(this.txt_Valor);
@@ -228,6 +228,7 @@
             this.btn_fin_pedido.TabIndex = 11;
             this.btn_fin_pedido.Text = "Finalizar Pedido";
             this.btn_fin_pedido.UseVisualStyleBackColor = true;
+            this.btn_fin_pedido.Click += new System.EventHandler(this.btn_fin_pedido_Click);
             // 
             // btn_fin_venda
             // 
@@ -237,6 +238,7 @@
             this.btn_fin_venda.TabIndex = 10;
             this.btn_fin_venda.Text = "Finalizar Venda";
             this.btn_fin_venda.UseVisualStyleBackColor = true;
+            this.btn_fin_venda.Click += new System.EventHandler(this.btn_fin_venda_Click);
             // 
             // CB_produto
             // 
@@ -279,6 +281,47 @@
             this.dataGridViewItensVenda.TabIndex = 8;
             this.dataGridViewItensVenda.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridViewItensVenda_CellFormatting);
             // 
+            // CodigoProduto
+            // 
+            this.CodigoProduto.DataPropertyName = "CodigoProduto";
+            this.CodigoProduto.HeaderText = "CodigoProduto";
+            this.CodigoProduto.Name = "CodigoProduto";
+            this.CodigoProduto.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.DataPropertyName = "Produto";
+            this.dataGridViewTextBoxColumn6.HeaderText = "Produto";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.ReadOnly = true;
+            this.dataGridViewTextBoxColumn6.Width = 135;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "Quantidade";
+            this.dataGridViewTextBoxColumn1.HeaderText = "Quantidade";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "Valor";
+            dataGridViewCellStyle3.Format = "C2";
+            dataGridViewCellStyle3.NullValue = null;
+            this.dataGridViewTextBoxColumn4.DefaultCellStyle = dataGridViewCellStyle3;
+            this.dataGridViewTextBoxColumn4.HeaderText = "Valor";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            // 
+            // columnValorTotal
+            // 
+            dataGridViewCellStyle4.Format = "C2";
+            dataGridViewCellStyle4.NullValue = null;
+            this.columnValorTotal.DefaultCellStyle = dataGridViewCellStyle4;
+            this.columnValorTotal.HeaderText = "Valor Total";
+            this.columnValorTotal.Name = "columnValorTotal";
+            this.columnValorTotal.ReadOnly = true;
+            // 
             // valorTextBox
             // 
             this.valorTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.produtoBindingSource, "Valor", true));
@@ -297,22 +340,22 @@
             this.txt_valorPago.Size = new System.Drawing.Size(100, 20);
             this.txt_valorPago.TabIndex = 9;
             // 
-            // quantidadeTextBox
+            // txt_quantidade
             // 
-            this.quantidadeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.itensVendaBindingSource, "Quantidade", true));
-            this.quantidadeTextBox.Location = new System.Drawing.Point(441, 65);
-            this.quantidadeTextBox.Name = "quantidadeTextBox";
-            this.quantidadeTextBox.Size = new System.Drawing.Size(100, 20);
-            this.quantidadeTextBox.TabIndex = 5;
+            this.txt_quantidade.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.itensVendaBindingSource, "Quantidade", true));
+            this.txt_quantidade.Location = new System.Drawing.Point(441, 65);
+            this.txt_quantidade.Name = "txt_quantidade";
+            this.txt_quantidade.Size = new System.Drawing.Size(100, 20);
+            this.txt_quantidade.TabIndex = 5;
             // 
-            // codigoTextBox
+            // txt_codigo
             // 
-            this.codigoTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.vendaBindingSource, "Codigo", true));
-            this.codigoTextBox.Location = new System.Drawing.Point(119, 65);
-            this.codigoTextBox.Name = "codigoTextBox";
-            this.codigoTextBox.ReadOnly = true;
-            this.codigoTextBox.Size = new System.Drawing.Size(100, 20);
-            this.codigoTextBox.TabIndex = 1;
+            this.txt_codigo.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.vendaBindingSource, "Codigo", true));
+            this.txt_codigo.Location = new System.Drawing.Point(119, 65);
+            this.txt_codigo.Name = "txt_codigo";
+            this.txt_codigo.ReadOnly = true;
+            this.txt_codigo.Size = new System.Drawing.Size(100, 20);
+            this.txt_codigo.TabIndex = 1;
             // 
             // txt_Desconto
             // 
@@ -342,53 +385,12 @@
             this.btn_novaVenda.UseVisualStyleBackColor = true;
             this.btn_novaVenda.Click += new System.EventHandler(this.btn_novaVenda_Click);
             // 
-            // CodigoProduto
-            // 
-            this.CodigoProduto.DataPropertyName = "CodigoProduto";
-            this.CodigoProduto.HeaderText = "CodigoProduto";
-            this.CodigoProduto.Name = "CodigoProduto";
-            this.CodigoProduto.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            this.dataGridViewTextBoxColumn6.DataPropertyName = "Produto";
-            this.dataGridViewTextBoxColumn6.HeaderText = "Produto";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            this.dataGridViewTextBoxColumn6.ReadOnly = true;
-            this.dataGridViewTextBoxColumn6.Width = 135;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "Quantidade";
-            this.dataGridViewTextBoxColumn1.HeaderText = "Quantidade";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "Valor";
-            dataGridViewCellStyle1.Format = "C2";
-            dataGridViewCellStyle1.NullValue = null;
-            this.dataGridViewTextBoxColumn4.DefaultCellStyle = dataGridViewCellStyle1;
-            this.dataGridViewTextBoxColumn4.HeaderText = "Valor";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.ReadOnly = true;
-            // 
-            // columnValorTotal
-            // 
-            dataGridViewCellStyle2.Format = "C2";
-            dataGridViewCellStyle2.NullValue = null;
-            this.columnValorTotal.DefaultCellStyle = dataGridViewCellStyle2;
-            this.columnValorTotal.HeaderText = "Valor Total";
-            this.columnValorTotal.Name = "columnValorTotal";
-            this.columnValorTotal.ReadOnly = true;
-            // 
             // frm_venda
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.ClientSize = new System.Drawing.Size(724, 488);
+            this.ClientSize = new System.Drawing.Size(754, 52);
             this.Controls.Add(this.btn_novaVenda);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(codigoPessoaLabel);
@@ -418,8 +420,8 @@
         private System.Windows.Forms.DataGridView dataGridViewItensVenda;
         private System.Windows.Forms.BindingSource itensVendaBindingSource;
         private System.Windows.Forms.TextBox valorTextBox;
-        private System.Windows.Forms.TextBox quantidadeTextBox;
-        private System.Windows.Forms.TextBox codigoTextBox;
+        private System.Windows.Forms.TextBox txt_quantidade;
+        private System.Windows.Forms.TextBox txt_codigo;
         private System.Windows.Forms.ComboBox CB_produto;
         private System.Windows.Forms.BindingSource produtoBindingSource;
         private System.Windows.Forms.Button btn_novaVenda;
