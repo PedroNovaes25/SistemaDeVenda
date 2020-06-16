@@ -48,6 +48,12 @@ namespace sistema.DAL
     partial void InsertUsuarios(Usuarios instance);
     partial void UpdateUsuarios(Usuarios instance);
     partial void DeleteUsuarios(Usuarios instance);
+    partial void InsertStatusPagamento(StatusPagamento instance);
+    partial void UpdateStatusPagamento(StatusPagamento instance);
+    partial void DeleteStatusPagamento(StatusPagamento instance);
+    partial void InsertContasReceber(ContasReceber instance);
+    partial void UpdateContasReceber(ContasReceber instance);
+    partial void DeleteContasReceber(ContasReceber instance);
     #endregion
 		
 		public sistemaDataContext() : 
@@ -125,6 +131,22 @@ namespace sistema.DAL
 			get
 			{
 				return this.GetTable<Usuarios>();
+			}
+		}
+		
+		public System.Data.Linq.Table<StatusPagamento> StatusPagamento
+		{
+			get
+			{
+				return this.GetTable<StatusPagamento>();
+			}
+		}
+		
+		public System.Data.Linq.Table<ContasReceber> ContasReceber
+		{
+			get
+			{
+				return this.GetTable<ContasReceber>();
 			}
 		}
 	}
@@ -692,6 +714,8 @@ namespace sistema.DAL
 		
 		private EntitySet<ItensVenda> _ItensVenda;
 		
+		private EntitySet<ContasReceber> _ContasReceber;
+		
 		private EntityRef<Pessoas> _Pessoas;
 		
     #region Extensibility Method Definitions
@@ -713,6 +737,7 @@ namespace sistema.DAL
 		public Venda()
 		{
 			this._ItensVenda = new EntitySet<ItensVenda>(new Action<ItensVenda>(this.attach_ItensVenda), new Action<ItensVenda>(this.detach_ItensVenda));
+			this._ContasReceber = new EntitySet<ContasReceber>(new Action<ContasReceber>(this.attach_ContasReceber), new Action<ContasReceber>(this.detach_ContasReceber));
 			this._Pessoas = default(EntityRef<Pessoas>);
 			OnCreated();
 		}
@@ -830,6 +855,19 @@ namespace sistema.DAL
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Venda_tb_contas_receber", Storage="_ContasReceber", ThisKey="Codigo", OtherKey="CodigoVenda")]
+		public EntitySet<ContasReceber> ContasReceber
+		{
+			get
+			{
+				return this._ContasReceber;
+			}
+			set
+			{
+				this._ContasReceber.Assign(value);
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Pessoas_Venda", Storage="_Pessoas", ThisKey="CodigoPessoa", OtherKey="Codigo", IsForeignKey=true)]
 		public Pessoas Pessoas
 		{
@@ -891,6 +929,18 @@ namespace sistema.DAL
 		}
 		
 		private void detach_ItensVenda(ItensVenda entity)
+		{
+			this.SendPropertyChanging();
+			entity.Venda = null;
+		}
+		
+		private void attach_ContasReceber(ContasReceber entity)
+		{
+			this.SendPropertyChanging();
+			entity.Venda = this;
+		}
+		
+		private void detach_ContasReceber(ContasReceber entity)
 		{
 			this.SendPropertyChanging();
 			entity.Venda = null;
@@ -1096,6 +1146,376 @@ namespace sistema.DAL
 					this._Codigo = value;
 					this.SendPropertyChanged("Codigo");
 					this.OnCodigoChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tb_status")]
+	public partial class StatusPagamento : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _Codigo;
+		
+		private string _Status;
+		
+		private EntitySet<ContasReceber> _ContasReceber;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnCodigoChanging(int value);
+    partial void OnCodigoChanged();
+    partial void OnStatusChanging(string value);
+    partial void OnStatusChanged();
+    #endregion
+		
+		public StatusPagamento()
+		{
+			this._ContasReceber = new EntitySet<ContasReceber>(new Action<ContasReceber>(this.attach_ContasReceber), new Action<ContasReceber>(this.detach_ContasReceber));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="id_status", Storage="_Codigo", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int Codigo
+		{
+			get
+			{
+				return this._Codigo;
+			}
+			set
+			{
+				if ((this._Codigo != value))
+				{
+					this.OnCodigoChanging(value);
+					this.SendPropertyChanging();
+					this._Codigo = value;
+					this.SendPropertyChanged("Codigo");
+					this.OnCodigoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="status", Storage="_Status", DbType="NVarChar(50)")]
+		public string Status
+		{
+			get
+			{
+				return this._Status;
+			}
+			set
+			{
+				if ((this._Status != value))
+				{
+					this.OnStatusChanging(value);
+					this.SendPropertyChanging();
+					this._Status = value;
+					this.SendPropertyChanged("Status");
+					this.OnStatusChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tb_status_tb_contas_receber", Storage="_ContasReceber", ThisKey="Codigo", OtherKey="CodigoStatus")]
+		public EntitySet<ContasReceber> ContasReceber
+		{
+			get
+			{
+				return this._ContasReceber;
+			}
+			set
+			{
+				this._ContasReceber.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_ContasReceber(ContasReceber entity)
+		{
+			this.SendPropertyChanging();
+			entity.StatusPagamento = this;
+		}
+		
+		private void detach_ContasReceber(ContasReceber entity)
+		{
+			this.SendPropertyChanging();
+			entity.StatusPagamento = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tb_contas_receber")]
+	public partial class ContasReceber : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _Codigo;
+		
+		private System.Nullable<System.DateTime> _DataCompra;
+		
+		private System.Nullable<System.DateTime> _DataVencimento;
+		
+		private System.Nullable<System.DateTime> _DataPagamento;
+		
+		private System.Nullable<int> _CodigoVenda;
+		
+		private System.Nullable<int> _CodigoStatus;
+		
+		private EntityRef<StatusPagamento> _StatusPagamento;
+		
+		private EntityRef<Venda> _Venda;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnCodigoChanging(int value);
+    partial void OnCodigoChanged();
+    partial void OnDataCompraChanging(System.Nullable<System.DateTime> value);
+    partial void OnDataCompraChanged();
+    partial void OnDataVencimentoChanging(System.Nullable<System.DateTime> value);
+    partial void OnDataVencimentoChanged();
+    partial void OnDataPagamentoChanging(System.Nullable<System.DateTime> value);
+    partial void OnDataPagamentoChanged();
+    partial void OnCodigoVendaChanging(System.Nullable<int> value);
+    partial void OnCodigoVendaChanged();
+    partial void OnCodigoStatusChanging(System.Nullable<int> value);
+    partial void OnCodigoStatusChanged();
+    #endregion
+		
+		public ContasReceber()
+		{
+			this._StatusPagamento = default(EntityRef<StatusPagamento>);
+			this._Venda = default(EntityRef<Venda>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="id_conta", Storage="_Codigo", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int Codigo
+		{
+			get
+			{
+				return this._Codigo;
+			}
+			set
+			{
+				if ((this._Codigo != value))
+				{
+					this.OnCodigoChanging(value);
+					this.SendPropertyChanging();
+					this._Codigo = value;
+					this.SendPropertyChanged("Codigo");
+					this.OnCodigoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="data_compra", Storage="_DataCompra", DbType="DateTime")]
+		public System.Nullable<System.DateTime> DataCompra
+		{
+			get
+			{
+				return this._DataCompra;
+			}
+			set
+			{
+				if ((this._DataCompra != value))
+				{
+					this.OnDataCompraChanging(value);
+					this.SendPropertyChanging();
+					this._DataCompra = value;
+					this.SendPropertyChanged("DataCompra");
+					this.OnDataCompraChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="data_vencimento", Storage="_DataVencimento", DbType="DateTime")]
+		public System.Nullable<System.DateTime> DataVencimento
+		{
+			get
+			{
+				return this._DataVencimento;
+			}
+			set
+			{
+				if ((this._DataVencimento != value))
+				{
+					this.OnDataVencimentoChanging(value);
+					this.SendPropertyChanging();
+					this._DataVencimento = value;
+					this.SendPropertyChanged("DataVencimento");
+					this.OnDataVencimentoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="data_pagamento", Storage="_DataPagamento", DbType="DateTime")]
+		public System.Nullable<System.DateTime> DataPagamento
+		{
+			get
+			{
+				return this._DataPagamento;
+			}
+			set
+			{
+				if ((this._DataPagamento != value))
+				{
+					this.OnDataPagamentoChanging(value);
+					this.SendPropertyChanging();
+					this._DataPagamento = value;
+					this.SendPropertyChanged("DataPagamento");
+					this.OnDataPagamentoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="id_venda", Storage="_CodigoVenda", DbType="Int")]
+		public System.Nullable<int> CodigoVenda
+		{
+			get
+			{
+				return this._CodigoVenda;
+			}
+			set
+			{
+				if ((this._CodigoVenda != value))
+				{
+					this.OnCodigoVendaChanging(value);
+					this.SendPropertyChanging();
+					this._CodigoVenda = value;
+					this.SendPropertyChanged("CodigoVenda");
+					this.OnCodigoVendaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="id_status", Storage="_CodigoStatus", DbType="Int")]
+		public System.Nullable<int> CodigoStatus
+		{
+			get
+			{
+				return this._CodigoStatus;
+			}
+			set
+			{
+				if ((this._CodigoStatus != value))
+				{
+					this.OnCodigoStatusChanging(value);
+					this.SendPropertyChanging();
+					this._CodigoStatus = value;
+					this.SendPropertyChanged("CodigoStatus");
+					this.OnCodigoStatusChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tb_status_tb_contas_receber", Storage="_StatusPagamento", ThisKey="CodigoStatus", OtherKey="Codigo", IsForeignKey=true)]
+		public StatusPagamento StatusPagamento
+		{
+			get
+			{
+				return this._StatusPagamento.Entity;
+			}
+			set
+			{
+				StatusPagamento previousValue = this._StatusPagamento.Entity;
+				if (((previousValue != value) 
+							|| (this._StatusPagamento.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._StatusPagamento.Entity = null;
+						previousValue.ContasReceber.Remove(this);
+					}
+					this._StatusPagamento.Entity = value;
+					if ((value != null))
+					{
+						value.ContasReceber.Add(this);
+						this._CodigoStatus = value.Codigo;
+					}
+					else
+					{
+						this._CodigoStatus = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("StatusPagamento");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Venda_tb_contas_receber", Storage="_Venda", ThisKey="CodigoVenda", OtherKey="Codigo", IsForeignKey=true)]
+		public Venda Venda
+		{
+			get
+			{
+				return this._Venda.Entity;
+			}
+			set
+			{
+				Venda previousValue = this._Venda.Entity;
+				if (((previousValue != value) 
+							|| (this._Venda.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Venda.Entity = null;
+						previousValue.ContasReceber.Remove(this);
+					}
+					this._Venda.Entity = value;
+					if ((value != null))
+					{
+						value.ContasReceber.Add(this);
+						this._CodigoVenda = value.Codigo;
+					}
+					else
+					{
+						this._CodigoVenda = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("Venda");
 				}
 			}
 		}

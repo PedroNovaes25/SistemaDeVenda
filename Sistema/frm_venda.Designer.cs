@@ -37,12 +37,18 @@
             System.Windows.Forms.Label valorLabel1;
             System.Windows.Forms.Label descontoLabel;
             System.Windows.Forms.Label valorPagoLabel;
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.Label codigoStatusLabel;
+            System.Windows.Forms.Label dataVencimentoLabel;
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.CB_cliente = new System.Windows.Forms.ComboBox();
             this.vendaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.pessoasBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btn_finalizar = new System.Windows.Forms.Button();
+            this.txt_data_vencimento = new System.Windows.Forms.DateTimePicker();
+            this.contasReceberBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.CB_pagamento = new System.Windows.Forms.ComboBox();
             this.btn_imprimir = new System.Windows.Forms.Button();
             this.btn_novoItem = new System.Windows.Forms.Button();
             this.btn_fin_pedido = new System.Windows.Forms.Button();
@@ -63,6 +69,7 @@
             this.txt_Desconto = new System.Windows.Forms.TextBox();
             this.txt_Valor = new System.Windows.Forms.TextBox();
             this.btn_novaVenda = new System.Windows.Forms.Button();
+            this.statusPagamentoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             codigoPessoaLabel = new System.Windows.Forms.Label();
             codigoLabel = new System.Windows.Forms.Label();
             quantidadeLabel = new System.Windows.Forms.Label();
@@ -71,12 +78,16 @@
             valorLabel1 = new System.Windows.Forms.Label();
             descontoLabel = new System.Windows.Forms.Label();
             valorPagoLabel = new System.Windows.Forms.Label();
+            codigoStatusLabel = new System.Windows.Forms.Label();
+            dataVencimentoLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.vendaBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pessoasBindingSource)).BeginInit();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.contasReceberBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.itensVendaBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.produtoBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewItensVenda)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.statusPagamentoBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // codigoPessoaLabel
@@ -91,7 +102,7 @@
             // codigoLabel
             // 
             codigoLabel.AutoSize = true;
-            codigoLabel.Location = new System.Drawing.Point(36, 68);
+            codigoLabel.Location = new System.Drawing.Point(60, 68);
             codigoLabel.Name = "codigoLabel";
             codigoLabel.Size = new System.Drawing.Size(77, 13);
             codigoLabel.TabIndex = 0;
@@ -100,7 +111,7 @@
             // quantidadeLabel
             // 
             quantidadeLabel.AutoSize = true;
-            quantidadeLabel.Location = new System.Drawing.Point(373, 68);
+            quantidadeLabel.Location = new System.Drawing.Point(397, 68);
             quantidadeLabel.Name = "quantidadeLabel";
             quantidadeLabel.Size = new System.Drawing.Size(65, 13);
             quantidadeLabel.TabIndex = 4;
@@ -109,7 +120,7 @@
             // valorLabel
             // 
             valorLabel.AutoSize = true;
-            valorLabel.Location = new System.Drawing.Point(225, 68);
+            valorLabel.Location = new System.Drawing.Point(249, 68);
             valorLabel.Name = "valorLabel";
             valorLabel.Size = new System.Drawing.Size(34, 13);
             valorLabel.TabIndex = 6;
@@ -118,7 +129,7 @@
             // codigoProdutoLabel
             // 
             codigoProdutoLabel.AutoSize = true;
-            codigoProdutoLabel.Location = new System.Drawing.Point(65, 31);
+            codigoProdutoLabel.Location = new System.Drawing.Point(90, 22);
             codigoProdutoLabel.Name = "codigoProdutoLabel";
             codigoProdutoLabel.Size = new System.Drawing.Size(47, 13);
             codigoProdutoLabel.TabIndex = 8;
@@ -127,7 +138,7 @@
             // valorLabel1
             // 
             valorLabel1.AutoSize = true;
-            valorLabel1.Location = new System.Drawing.Point(78, 359);
+            valorLabel1.Location = new System.Drawing.Point(678, 101);
             valorLabel1.Name = "valorLabel1";
             valorLabel1.Size = new System.Drawing.Size(34, 13);
             valorLabel1.TabIndex = 5;
@@ -136,7 +147,7 @@
             // descontoLabel
             // 
             descontoLabel.AutoSize = true;
-            descontoLabel.Location = new System.Drawing.Point(247, 359);
+            descontoLabel.Location = new System.Drawing.Point(678, 144);
             descontoLabel.Name = "descontoLabel";
             descontoLabel.Size = new System.Drawing.Size(56, 13);
             descontoLabel.TabIndex = 6;
@@ -145,11 +156,29 @@
             // valorPagoLabel
             // 
             valorPagoLabel.AutoSize = true;
-            valorPagoLabel.Location = new System.Drawing.Point(437, 359);
+            valorPagoLabel.Location = new System.Drawing.Point(678, 190);
             valorPagoLabel.Name = "valorPagoLabel";
             valorPagoLabel.Size = new System.Drawing.Size(62, 13);
             valorPagoLabel.TabIndex = 8;
             valorPagoLabel.Text = "Valor Pago:";
+            // 
+            // codigoStatusLabel
+            // 
+            codigoStatusLabel.AutoSize = true;
+            codigoStatusLabel.Location = new System.Drawing.Point(87, 348);
+            codigoStatusLabel.Name = "codigoStatusLabel";
+            codigoStatusLabel.Size = new System.Drawing.Size(64, 13);
+            codigoStatusLabel.TabIndex = 19;
+            codigoStatusLabel.Text = "Pagamento:";
+            // 
+            // dataVencimentoLabel
+            // 
+            dataVencimentoLabel.AutoSize = true;
+            dataVencimentoLabel.Location = new System.Drawing.Point(59, 376);
+            dataVencimentoLabel.Name = "dataVencimentoLabel";
+            dataVencimentoLabel.Size = new System.Drawing.Size(92, 13);
+            dataVencimentoLabel.TabIndex = 21;
+            dataVencimentoLabel.Text = "Data Vencimento:";
             // 
             // CB_cliente
             // 
@@ -174,6 +203,11 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btn_finalizar);
+            this.groupBox1.Controls.Add(dataVencimentoLabel);
+            this.groupBox1.Controls.Add(this.txt_data_vencimento);
+            this.groupBox1.Controls.Add(codigoStatusLabel);
+            this.groupBox1.Controls.Add(this.CB_pagamento);
             this.groupBox1.Controls.Add(this.btn_imprimir);
             this.groupBox1.Controls.Add(this.btn_novoItem);
             this.groupBox1.Controls.Add(this.btn_fin_pedido);
@@ -195,15 +229,53 @@
             this.groupBox1.Controls.Add(this.txt_Valor);
             this.groupBox1.Location = new System.Drawing.Point(12, 49);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(700, 425);
+            this.groupBox1.Size = new System.Drawing.Size(801, 425);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Nova Venda";
             this.groupBox1.Visible = false;
             // 
+            // btn_finalizar
+            // 
+            this.btn_finalizar.Enabled = false;
+            this.btn_finalizar.Location = new System.Drawing.Point(157, 398);
+            this.btn_finalizar.Name = "btn_finalizar";
+            this.btn_finalizar.Size = new System.Drawing.Size(100, 23);
+            this.btn_finalizar.TabIndex = 23;
+            this.btn_finalizar.Text = "Finalizar";
+            this.btn_finalizar.UseVisualStyleBackColor = true;
+            this.btn_finalizar.Click += new System.EventHandler(this.btn_finalizar_Click_1);
+            // 
+            // txt_data_vencimento
+            // 
+            this.txt_data_vencimento.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.contasReceberBindingSource, "DataVencimento", true));
+            this.txt_data_vencimento.Enabled = false;
+            this.txt_data_vencimento.Location = new System.Drawing.Point(157, 372);
+            this.txt_data_vencimento.Name = "txt_data_vencimento";
+            this.txt_data_vencimento.Size = new System.Drawing.Size(100, 20);
+            this.txt_data_vencimento.TabIndex = 22;
+            // 
+            // contasReceberBindingSource
+            // 
+            this.contasReceberBindingSource.DataSource = typeof(sistema.DAL.ContasReceber);
+            // 
+            // CB_pagamento
+            // 
+            this.CB_pagamento.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.contasReceberBindingSource, "StatusPagamento", true));
+            this.CB_pagamento.DataSource = this.statusPagamentoBindingSource;
+            this.CB_pagamento.DisplayMember = "Status";
+            this.CB_pagamento.Enabled = false;
+            this.CB_pagamento.FormattingEnabled = true;
+            this.CB_pagamento.Location = new System.Drawing.Point(157, 345);
+            this.CB_pagamento.Name = "CB_pagamento";
+            this.CB_pagamento.Size = new System.Drawing.Size(100, 21);
+            this.CB_pagamento.TabIndex = 20;
+            this.CB_pagamento.ValueMember = "Codigo";
+            this.CB_pagamento.SelectedIndexChanged += new System.EventHandler(this.CB_pagamento_SelectedIndexChanged_1);
+            // 
             // btn_imprimir
             // 
-            this.btn_imprimir.Location = new System.Drawing.Point(505, 382);
+            this.btn_imprimir.Location = new System.Drawing.Point(681, 317);
             this.btn_imprimir.Name = "btn_imprimir";
             this.btn_imprimir.Size = new System.Drawing.Size(100, 23);
             this.btn_imprimir.TabIndex = 12;
@@ -212,7 +284,7 @@
             // 
             // btn_novoItem
             // 
-            this.btn_novoItem.Location = new System.Drawing.Point(561, 44);
+            this.btn_novoItem.Location = new System.Drawing.Point(681, 53);
             this.btn_novoItem.Name = "btn_novoItem";
             this.btn_novoItem.Size = new System.Drawing.Size(75, 23);
             this.btn_novoItem.TabIndex = 6;
@@ -222,7 +294,7 @@
             // 
             // btn_fin_pedido
             // 
-            this.btn_fin_pedido.Location = new System.Drawing.Point(118, 382);
+            this.btn_fin_pedido.Location = new System.Drawing.Point(681, 259);
             this.btn_fin_pedido.Name = "btn_fin_pedido";
             this.btn_fin_pedido.Size = new System.Drawing.Size(100, 23);
             this.btn_fin_pedido.TabIndex = 11;
@@ -232,7 +304,7 @@
             // 
             // btn_fin_venda
             // 
-            this.btn_fin_venda.Location = new System.Drawing.Point(309, 382);
+            this.btn_fin_venda.Location = new System.Drawing.Point(681, 288);
             this.btn_fin_venda.Name = "btn_fin_venda";
             this.btn_fin_venda.Size = new System.Drawing.Size(100, 23);
             this.btn_fin_venda.TabIndex = 10;
@@ -246,7 +318,7 @@
             this.CB_produto.DataSource = this.produtoBindingSource;
             this.CB_produto.DisplayMember = "Descricao";
             this.CB_produto.FormattingEnabled = true;
-            this.CB_produto.Location = new System.Drawing.Point(118, 28);
+            this.CB_produto.Location = new System.Drawing.Point(143, 19);
             this.CB_produto.Name = "CB_produto";
             this.CB_produto.Size = new System.Drawing.Size(422, 21);
             this.CB_produto.TabIndex = 9;
@@ -274,7 +346,7 @@
             this.dataGridViewTextBoxColumn4,
             this.columnValorTotal});
             this.dataGridViewItensVenda.DataSource = this.itensVendaBindingSource;
-            this.dataGridViewItensVenda.Location = new System.Drawing.Point(57, 103);
+            this.dataGridViewItensVenda.Location = new System.Drawing.Point(62, 101);
             this.dataGridViewItensVenda.Name = "dataGridViewItensVenda";
             this.dataGridViewItensVenda.ReadOnly = true;
             this.dataGridViewItensVenda.Size = new System.Drawing.Size(579, 239);
@@ -306,18 +378,18 @@
             // dataGridViewTextBoxColumn4
             // 
             this.dataGridViewTextBoxColumn4.DataPropertyName = "Valor";
-            dataGridViewCellStyle3.Format = "C2";
-            dataGridViewCellStyle3.NullValue = null;
-            this.dataGridViewTextBoxColumn4.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle5.Format = "C2";
+            dataGridViewCellStyle5.NullValue = null;
+            this.dataGridViewTextBoxColumn4.DefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridViewTextBoxColumn4.HeaderText = "Valor";
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
             this.dataGridViewTextBoxColumn4.ReadOnly = true;
             // 
             // columnValorTotal
             // 
-            dataGridViewCellStyle4.Format = "C2";
-            dataGridViewCellStyle4.NullValue = null;
-            this.columnValorTotal.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle6.Format = "C2";
+            dataGridViewCellStyle6.NullValue = null;
+            this.columnValorTotal.DefaultCellStyle = dataGridViewCellStyle6;
             this.columnValorTotal.HeaderText = "Valor Total";
             this.columnValorTotal.Name = "columnValorTotal";
             this.columnValorTotal.ReadOnly = true;
@@ -325,7 +397,7 @@
             // valorTextBox
             // 
             this.valorTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.produtoBindingSource, "Valor", true));
-            this.valorTextBox.Location = new System.Drawing.Point(262, 65);
+            this.valorTextBox.Location = new System.Drawing.Point(286, 65);
             this.valorTextBox.Name = "valorTextBox";
             this.valorTextBox.ReadOnly = true;
             this.valorTextBox.Size = new System.Drawing.Size(100, 20);
@@ -334,7 +406,7 @@
             // txt_valorPago
             // 
             this.txt_valorPago.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.vendaBindingSource, "ValorPago", true));
-            this.txt_valorPago.Location = new System.Drawing.Point(505, 356);
+            this.txt_valorPago.Location = new System.Drawing.Point(681, 206);
             this.txt_valorPago.Name = "txt_valorPago";
             this.txt_valorPago.ReadOnly = true;
             this.txt_valorPago.Size = new System.Drawing.Size(100, 20);
@@ -343,7 +415,7 @@
             // txt_quantidade
             // 
             this.txt_quantidade.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.itensVendaBindingSource, "Quantidade", true));
-            this.txt_quantidade.Location = new System.Drawing.Point(441, 65);
+            this.txt_quantidade.Location = new System.Drawing.Point(465, 65);
             this.txt_quantidade.Name = "txt_quantidade";
             this.txt_quantidade.Size = new System.Drawing.Size(100, 20);
             this.txt_quantidade.TabIndex = 5;
@@ -351,7 +423,7 @@
             // txt_codigo
             // 
             this.txt_codigo.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.vendaBindingSource, "Codigo", true));
-            this.txt_codigo.Location = new System.Drawing.Point(119, 65);
+            this.txt_codigo.Location = new System.Drawing.Point(143, 65);
             this.txt_codigo.Name = "txt_codigo";
             this.txt_codigo.ReadOnly = true;
             this.txt_codigo.Size = new System.Drawing.Size(100, 20);
@@ -360,7 +432,7 @@
             // txt_Desconto
             // 
             this.txt_Desconto.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.vendaBindingSource, "Desconto", true));
-            this.txt_Desconto.Location = new System.Drawing.Point(309, 356);
+            this.txt_Desconto.Location = new System.Drawing.Point(681, 160);
             this.txt_Desconto.Name = "txt_Desconto";
             this.txt_Desconto.ReadOnly = true;
             this.txt_Desconto.Size = new System.Drawing.Size(100, 20);
@@ -369,7 +441,7 @@
             // txt_Valor
             // 
             this.txt_Valor.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.vendaBindingSource, "Valor", true));
-            this.txt_Valor.Location = new System.Drawing.Point(118, 356);
+            this.txt_Valor.Location = new System.Drawing.Point(681, 117);
             this.txt_Valor.Name = "txt_Valor";
             this.txt_Valor.ReadOnly = true;
             this.txt_Valor.Size = new System.Drawing.Size(100, 20);
@@ -385,12 +457,16 @@
             this.btn_novaVenda.UseVisualStyleBackColor = true;
             this.btn_novaVenda.Click += new System.EventHandler(this.btn_novaVenda_Click);
             // 
+            // statusPagamentoBindingSource
+            // 
+            this.statusPagamentoBindingSource.DataSource = typeof(sistema.DAL.StatusPagamento);
+            // 
             // frm_venda
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.ClientSize = new System.Drawing.Size(754, 52);
+            this.ClientSize = new System.Drawing.Size(822, 488);
             this.Controls.Add(this.btn_novaVenda);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(codigoPessoaLabel);
@@ -403,9 +479,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.pessoasBindingSource)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.contasReceberBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.itensVendaBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.produtoBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewItensVenda)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.statusPagamentoBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -437,5 +515,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.DataGridViewTextBoxColumn columnValorTotal;
+        private System.Windows.Forms.ComboBox CB_pagamento;
+        private System.Windows.Forms.BindingSource contasReceberBindingSource;
+        private System.Windows.Forms.Button btn_finalizar;
+        private System.Windows.Forms.DateTimePicker txt_data_vencimento;
+        private System.Windows.Forms.BindingSource statusPagamentoBindingSource;
     }
 }

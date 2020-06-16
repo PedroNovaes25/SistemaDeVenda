@@ -36,6 +36,7 @@
       <Column Name="valor_pago" Member="ValorPago" Type="System.Decimal" DbType="Decimal(15,2)" CanBeNull="true" />
       <Column Name="id_pessoa" Member="CodigoPessoa" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Association Name="Venda_ItensVenda" Member="ItensVenda" ThisKey="Codigo" OtherKey="CodigoVenda" Type="ItensVenda" />
+      <Association Name="Venda_tb_contas_receber" Member="ContasReceber" ThisKey="Codigo" OtherKey="CodigoVenda" Type="ContasReceber" />
       <Association Name="Pessoas_Venda" Member="Pessoas" ThisKey="CodigoPessoa" OtherKey="Codigo" Type="Pessoas" IsForeignKey="true" />
     </Type>
   </Table>
@@ -51,6 +52,25 @@
       <Column Name="usuario" Member="Usuario" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="senha" Member="Senha" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="id_pessoa" Member="Codigo" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tb_status" Member="StatusPagamento">
+    <Type Name="StatusPagamento">
+      <Column Name="id_status" Member="Codigo" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="status" Member="Status" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="tb_status_tb_contas_receber" Member="ContasReceber" ThisKey="Codigo" OtherKey="CodigoStatus" Type="ContasReceber" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tb_contas_receber" Member="ContasReceber">
+    <Type Name="ContasReceber">
+      <Column Name="id_conta" Member="Codigo" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="data_compra" Member="DataCompra" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="data_vencimento" Member="DataVencimento" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="data_pagamento" Member="DataPagamento" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="id_venda" Member="CodigoVenda" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="id_status" Member="CodigoStatus" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="tb_status_tb_contas_receber" Member="StatusPagamento" ThisKey="CodigoStatus" OtherKey="Codigo" Type="StatusPagamento" IsForeignKey="true" />
+      <Association Name="Venda_tb_contas_receber" Member="Venda" ThisKey="CodigoVenda" OtherKey="Codigo" Type="Venda" IsForeignKey="true" />
     </Type>
   </Table>
 </Database>
