@@ -36,7 +36,7 @@
       <Column Name="valor_pago" Member="ValorPago" Type="System.Decimal" DbType="Decimal(15,2)" CanBeNull="true" />
       <Column Name="id_pessoa" Member="CodigoPessoa" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Association Name="Venda_ItensVenda" Member="ItensVenda" ThisKey="Codigo" OtherKey="CodigoVenda" Type="ItensVenda" />
-      <Association Name="Venda_tb_contas_receber" Member="ContasReceber" ThisKey="Codigo" OtherKey="CodigoVenda" Type="ContasReceber" />
+      <Association Name="Venda_ContasReceber" Member="ContasReceber" ThisKey="Codigo" OtherKey="CodigoVenda" Type="ContasReceber" />
       <Association Name="Pessoas_Venda" Member="Pessoas" ThisKey="CodigoPessoa" OtherKey="Codigo" Type="Pessoas" IsForeignKey="true" />
     </Type>
   </Table>
@@ -45,20 +45,14 @@
       <Column Name="id_pessoa" Member="Codigo" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="desc_pessoa" Member="Nome" Storage="_Descricao" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Association Name="Pessoas_Venda" Member="Venda" ThisKey="Codigo" OtherKey="CodigoPessoa" Type="Venda" />
-    </Type>
-  </Table>
-  <Table Name="dbo.tb_usuario" Member="Usuarios">
-    <Type Name="Usuarios">
-      <Column Name="usuario" Member="Usuario" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="senha" Member="Senha" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="id_pessoa" Member="Codigo" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="Pessoas_tb_usuario" Member="Usuario" ThisKey="Codigo" OtherKey="id_pessoa" Type="Usuario" Cardinality="One" />
     </Type>
   </Table>
   <Table Name="dbo.tb_status" Member="StatusPagamento">
     <Type Name="StatusPagamento">
       <Column Name="id_status" Member="Codigo" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="status" Member="Status" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Association Name="tb_status_tb_contas_receber" Member="ContasReceber" ThisKey="Codigo" OtherKey="CodigoStatus" Type="ContasReceber" />
+      <Association Name="StatusPagamento_ContasReceber" Member="ContasReceber" ThisKey="Codigo" OtherKey="CodigoStatus" Type="ContasReceber" />
     </Type>
   </Table>
   <Table Name="dbo.tb_contas_receber" Member="ContasReceber">
@@ -69,8 +63,16 @@
       <Column Name="data_pagamento" Member="DataPagamento" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="id_venda" Member="CodigoVenda" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="id_status" Member="CodigoStatus" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Association Name="tb_status_tb_contas_receber" Member="StatusPagamento" ThisKey="CodigoStatus" OtherKey="Codigo" Type="StatusPagamento" IsForeignKey="true" />
-      <Association Name="Venda_tb_contas_receber" Member="Venda" ThisKey="CodigoVenda" OtherKey="Codigo" Type="Venda" IsForeignKey="true" />
+      <Association Name="StatusPagamento_ContasReceber" Member="StatusPagamento" ThisKey="CodigoStatus" OtherKey="Codigo" Type="StatusPagamento" IsForeignKey="true" />
+      <Association Name="Venda_ContasReceber" Member="Venda" ThisKey="CodigoVenda" OtherKey="Codigo" Type="Venda" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tb_usuario" Member="Usuario">
+    <Type Name="Usuario">
+      <Column Name="usuario" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="senha" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="id_pessoa" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="Pessoas_tb_usuario" Member="Pessoas" ThisKey="id_pessoa" OtherKey="Codigo" Type="Pessoas" IsForeignKey="true" />
     </Type>
   </Table>
 </Database>
