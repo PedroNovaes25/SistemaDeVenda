@@ -16,7 +16,14 @@ namespace Sistema
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frm_menu());
+            //Como os formulários devem ser abertos
+            frm_login frm = new frm_login();
+            frm.ShowDialog();
+
+            if (frm.logado == true) 
+            {
+                Application.Run(new frm_menu()); 
+            }
         }
     }
 }

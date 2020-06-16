@@ -121,16 +121,22 @@
   <data name="vendas3" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\images\vendas3.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="fundo sistema azul" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\images\fundo sistema azul.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="faturas 40x40" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\icones\faturas 40x40.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="cadastro produtos 40 x 40" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\images\icones\cadastro produtos 40 x 40.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="fundo sistema azul" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\fundo sistema azul.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icone login 20x20" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\icones\icone login 20x20.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="addressbook-search64" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\images\icones\addressbook-search64.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="faturas 40x40" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\images\icones\faturas 40x40.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="sair 20x20" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\icones\sair 20x20.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

@@ -63,6 +63,16 @@ namespace Sistema.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap addressbook_search64 {
+            get {
+                object obj = ResourceManager.GetObject("addressbook-search64", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap cadastro_produtos_40_x_40 {
             get {
                 object obj = ResourceManager.GetObject("cadastro produtos 40 x 40", resourceCulture);
@@ -86,6 +96,36 @@ namespace Sistema.Properties {
         internal static System.Drawing.Bitmap fundo_sistema_azul {
             get {
                 object obj = ResourceManager.GetObject("fundo sistema azul", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icone_login_20x20 {
+            get {
+                object obj = ResourceManager.GetObject("icone login 20x20", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap sair_20x20 {
+            get {
+                object obj = ResourceManager.GetObject("sair 20x20", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap vendas3 {
+            get {
+                object obj = ResourceManager.GetObject("vendas3", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
