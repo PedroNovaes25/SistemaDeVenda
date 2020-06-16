@@ -20,3 +20,9 @@ C:\Users\Public\PedroNovaes\SistemaDeVenda\Sistema\bin\Debug\sistema.DAL.dll.con
 C:\Users\Public\PedroNovaes\SistemaDeVenda\Sistema\obj\Debug\Sistema.frm_consultaProdutos.resources
 C:\Users\Public\PedroNovaes\SistemaDeVenda\Sistema\obj\Debug\Sistema.frm_venda.resources
 C:\Users\Public\PedroNovaes\SistemaDeVenda\Sistema\obj\Debug\Sistema.frm_login.resources
+C:\Users\Public\PedroNovaes\SistemaDeVenda\Sistema\bin\Debug\Sistema.exe.manifest
+C:\Users\Public\PedroNovaes\SistemaDeVenda\Sistema\bin\Debug\Sistema.application
+C:\Users\Public\PedroNovaes\SistemaDeVenda\Sistema\obj\Debug\Sistema.Relatórios.frm_Relatorio_Pedidos.resources
+C:\Users\Public\PedroNovaes\SistemaDeVenda\Sistema\obj\Debug\Sistema.TrustInfo.xml
+C:\Users\Public\PedroNovaes\SistemaDeVenda\Sistema\obj\Debug\Sistema.exe.manifest
+C:\Users\Public\PedroNovaes\SistemaDeVenda\Sistema\obj\Debug\Sistema.application
